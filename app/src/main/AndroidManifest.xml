@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.alarm.AlarmActivity">
+        <activity android:name=".ui.alarm.list.AlarmListActivity">
+        </activity>
+        <activity android:name=".ui.alarm.regist.AlarmRegistActivity">
         </activity>
     </application>
 
