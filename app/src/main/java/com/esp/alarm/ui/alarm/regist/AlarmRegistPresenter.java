@@ -21,6 +21,7 @@ class AlarmRegistPresenter implements AlarmRegistContract.Presenter {
             Realm.getDefaultInstance().executeTransaction(realm -> {
                 int nextPrimaryKey = RealmUtils.getNextPrimaryKey(realm, Alarm.class);
                 alarm.setId(nextPrimaryKey);
+                alarm.setTurnOn(true);
                 realm.copyToRealmOrUpdate(alarm);
             });
         }

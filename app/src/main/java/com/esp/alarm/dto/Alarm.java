@@ -13,6 +13,7 @@ public class Alarm extends RealmObject {
     private int hour;
     private int minute;
     private int carSpeed;
+    private boolean isTurnOn;
 
     public Alarm() {
     }
@@ -43,6 +44,14 @@ public class Alarm extends RealmObject {
         return carSpeed;
     }
 
+    public void setTurnOn(boolean turnOn) {
+        isTurnOn = turnOn;
+    }
+
+    public boolean isTurnOn() {
+        return isTurnOn;
+    }
+
     public static Alarm getInstance(TimePicker timePicker, EditText carSpeedText) {
         int alarmHour, alarmMinute;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -59,5 +68,19 @@ public class Alarm extends RealmObject {
             return null;
         }
         return new Alarm(alarmHour, alarmMinute, carSpeed);
+    }
+
+    public String getTime() {
+        boolean isAM = getHour() / 12 != 1;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (isAM) {
+            stringBuilder.append("오전 ");
+        } else {
+            stringBuilder.append("오후 ");
+        }
+        stringBuilder.append(getHour() % 12);
+        stringBuilder.append(":");
+        stringBuilder.append(getMinute());
+        return stringBuilder.toString();
     }
 }
