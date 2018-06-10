@@ -38,7 +38,7 @@
                 android:layout_marginBottom="15dp">
 
                 <ImageView
-                    android:id="@+id/imgView"
+                    android:id="@+id/user_im_profile"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_gravity="center"
@@ -46,15 +46,14 @@
                     android:background="@drawable/shape"
                     android:maxHeight="100dp"
                     android:maxWidth="100dp"
-                    android:src="@drawable/profile" />
+                    />
 
                 <Button
-                    android:id="@+id/getCustom"
+                    android:id="@+id/user_btn_camera"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="right|bottom"
                     android:background="@drawable/camera"
-                    android:onClick="onClick"
                     android:textSize="10dp" />
 
             </FrameLayout>
@@ -78,6 +77,7 @@
                     android:textSize="12sp" />
 
                 <EditText
+                    android:id="@+id/user_edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@android:color/white"
@@ -96,7 +96,7 @@
                 android:paddingRight="33dp">
 
                 <Button
-                    android:id="@+id/inputInfo_next_btn"
+                    android:id="@+id/user_btn_check"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
@@ -106,6 +106,15 @@
 
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:text="wer"
+                android:textSize="12dp" />
 
 
         </LinearLayout>
