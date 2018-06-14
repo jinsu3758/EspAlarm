@@ -1,17 +1,19 @@
 package com.esp.alarm.ui.user;
 
+import android.net.wifi.WifiConfiguration;
 import android.os.Handler;
 import android.util.Log;
 
 import com.esp.alarm.common.Constant;
+import com.esp.alarm.dto.UserInfoProtocol;
 import com.esp.alarm.network.BluetoothService;
+import com.esp.alarm.network.ProtocolSender;
 
-public class UserPresenter implements UserContract.Presenter{
+public class UserPresenter implements UserContract.Presenter {
     private UserContract.View mView;
     private Handler handler;
 
-    public UserPresenter(UserContract.View view, Handler handler)
-    {
+    public UserPresenter(UserContract.View view, Handler handler) {
         mView = view;
         this.handler = handler;
     }
@@ -40,5 +42,11 @@ public class UserPresenter implements UserContract.Presenter{
         } else if (status == Constant.getInstance().getREQUEST_CONNECT_DEVICE()) {
             mView.showBluetoothDeviceList(status);
         }
+    }
+
+    @Override
+    public void sendUserInfo(String userName, String encodedProfile) {
+        UserInfoProtocol userInfoProtocol = new UserInfoProtocol(userName, encodedProfile);
+        ProtocolSender.sendUserInfo(userInfoProtocol);
     }
 }

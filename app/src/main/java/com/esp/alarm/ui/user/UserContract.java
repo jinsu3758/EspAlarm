@@ -16,5 +16,7 @@ public interface UserContract {
         void showBluetootSettingView();
 
         void setBluetoothActivity(int status);
+
+        void sendUserInfo(String userName, String encodedProfile);
     }
 }

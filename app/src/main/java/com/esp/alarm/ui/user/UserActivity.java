@@ -3,10 +3,14 @@ package com.esp.alarm.ui.user;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,9 +21,14 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.esp.alarm.R;
 import com.esp.alarm.common.Constant;
+import com.esp.alarm.dto.UserInfoProtocol;
+import com.esp.alarm.network.ProtocolSender;
+import com.esp.alarm.ui.alarm.list.AlarmListActivity;
 import com.esp.alarm.ui.bluetooth.DeviceListActivity;
 import com.esp.alarm.network.BluetoothService;
+import com.esp.alarm.utils.TransferUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import butterknife.BindView;
@@ -68,11 +77,14 @@ public class UserActivity extends AppCompatActivity implements UserContract.View
         });
 
         userBtnCheck.setOnClickListener(v -> {
-            mPresenter.showBluetootSettingView();
+            Intent intent = new Intent(getApplicationContext(), AlarmListActivity.class);
+            startActivity(intent);
         });
 
         btbtn.setOnClickListener(v -> {
-            BluetoothService.getInstance().write("123 : 123".getBytes());
+            String userName = userEditName.getText().toString();
+            String encodedProfile = TransferUtils.ImageView2Base64(userImProfile);
+            mPresenter.sendUserInfo(userName, encodedProfile);
         });
     }
 
