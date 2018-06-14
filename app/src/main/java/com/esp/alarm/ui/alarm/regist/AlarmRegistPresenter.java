@@ -1,7 +1,10 @@
 package com.esp.alarm.ui.alarm.regist;
 
 import com.esp.alarm.dto.Alarm;
+import com.esp.alarm.utils.AlarmUtils;
 import com.esp.alarm.utils.RealmUtils;
+
+import java.util.Calendar;
 
 import io.realm.Realm;
 
@@ -25,7 +28,10 @@ class AlarmRegistPresenter implements AlarmRegistContract.Presenter {
                 realm.copyToRealmOrUpdate(alarm);
             });
         }
-        mView.hideActivity();
+        // 알람추가.
+        mView.setAlarm(alarm);
+
         // 화면 닫기
+        mView.hideActivity();
     }
 }

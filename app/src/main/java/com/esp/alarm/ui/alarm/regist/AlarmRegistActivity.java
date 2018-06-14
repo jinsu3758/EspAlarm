@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.esp.alarm.R;
 import com.esp.alarm.dto.Alarm;
+import com.esp.alarm.utils.AlarmUtils;
 
 public class AlarmRegistActivity extends AppCompatActivity implements AlarmRegistContract.View {
     private AlarmRegistContract.Presenter mPresenter;
@@ -39,5 +40,10 @@ public class AlarmRegistActivity extends AppCompatActivity implements AlarmRegis
     @Override
     public void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setAlarm(Alarm alarm) {
+        AlarmUtils.getInstance().setAlarm(alarm, getApplicationContext());
     }
 }

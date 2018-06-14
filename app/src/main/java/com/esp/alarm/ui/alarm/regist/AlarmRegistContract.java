@@ -8,6 +8,8 @@ public interface AlarmRegistContract {
         void hideActivity();
 
         void showToast(String string);
+
+        void setAlarm(Alarm alarm);
     }
 
     interface Presenter {
