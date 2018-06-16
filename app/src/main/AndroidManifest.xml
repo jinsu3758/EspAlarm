@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.esp.alarm">
+          package="com.esp.alarm">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -17,26 +17,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".ui.alarm.receiver.AlarmReceiver"
-                  android:enabled="true"
-                  android:exported="false">
+        <receiver
+            android:name=".ui.alarm.receiver.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-        <activity android:name=".ui.main.MainActivity">
 
+        <activity android:name=".ui.main.MainActivity">
         </activity>
-        <activity android:name=".ui.alarm.list.AlarmListActivity"></activity>
-        <activity android:name=".ui.alarm.regist.AlarmRegistActivity"></activity>
-        <activity android:name=".ui.bluetooth.DeviceListActivity"></activity>
+        <activity android:name=".ui.alarm.list.AlarmListActivity"/>
+        <activity android:name=".ui.alarm.regist.AlarmRegistActivity"/>
+        <activity android:name=".ui.bluetooth.DeviceListActivity"/>
         <activity android:name=".ui.user.UserActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".ui.alarm.service.AlarmService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

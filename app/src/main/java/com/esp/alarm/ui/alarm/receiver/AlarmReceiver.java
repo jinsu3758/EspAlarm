@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.esp.alarm.dto.SignalStartProtocol;
 import com.esp.alarm.network.ProtocolSender;
+import com.esp.alarm.ui.alarm.service.AlarmService;
 
 import java.io.File;
 
@@ -17,6 +18,8 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d("test", "reciever test");
         // 음악실행
+        Intent alarmIntent = new Intent(context, AlarmService.class);
+        context.startService(alarmIntent);
 
         int carSpeed = intent.getIntExtra(SignalStartProtocol.CAR_SPEED, 0);
         SignalStartProtocol signalStartProtocol = new SignalStartProtocol(carSpeed);

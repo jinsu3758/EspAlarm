@@ -17,10 +17,10 @@ public class SignalStartProtocol extends BaseProtocol {
     }
 
     private static class SignalStart {
-        private int cat_speed;
+        private int car_speed;
 
-        public SignalStart(int cat_speed) {
-            this.cat_speed = cat_speed;
+        public SignalStart(int carSpeed) {
+            this.car_speed = carSpeed;
         }
     }
 }

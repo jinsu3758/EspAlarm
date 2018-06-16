@@ -271,11 +271,12 @@ public class BluetoothService {
 
         public void run() {
             Log.d("BlUETOOTH", "connected 쓰레드 run");
-            byte[] buffer = new byte[1024];
-            int bytes;
+
             // Keep listening to the InputStream while connected
             while (true) {
                 try {
+                    byte[] buffer = new byte[1024];
+                    int bytes;
                     Log.d("BlUETOOTH", "값 읽음");
                     // InputStream으로부터 값을 받는 읽는 부분(값을 받는다)
                     bytes = mmInStream.read(buffer);
